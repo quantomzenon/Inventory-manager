@@ -1,0 +1,15 @@
+body{
+    background-color:#EDE6DB;
+}
+hr{
+    height: 10px;
+    border-style: none;
+    border-top-style: dotted;
+    border-width:5px;
+    width: 75%;
+    border-color: #1A3C40;
+}
+label
+{
+    color:#1A3C40;
+}

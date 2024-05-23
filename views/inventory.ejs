@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="css/tablestyle.css">  
+    <link rel="stylesheet" href="css/Inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div id="mySidenav" class="sidenav">
+    <p class="logo">INV Manager</p>
+    <a href="Dashboard" class="icon-a"><i class="fa fa-dashboard icons"></i> Dashboard</a>
+	  <a href="#"class="icon-a"><i class="fa fa-users icons"></i>Inventory</a>
+	  <a href="stats"class="icon-a"><i class="fa fa-list icons"></i>Statistics</a>
+	  <a href="sales"class="icon-a"><i class="fa fa-shopping-bag icons"></i>Sales</a>
+	  <a href="billing"class="icon-a"><i class="fa fa-tasks icons"></i>Billing</a>   
+  </div>
+
+  <div id="main">
+
+		<div class="head">
+			<div class="col-div-6">
+        <span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >☰ Inventory</span>
+	      <span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >☰ Inventory</span>
+	    </div>
+		
+		<div class="col-div-6">
+      <div class="profile">
+        <img src="images/user.jpg" class="pro-img" />
+			  <p>Team 5</p> <span></span></p> 
+      </div>
+	  </div>
+		<div class="clearfix"></div>
+    </div>
+
+		<div class="clearfix"></div>
+		<br/>
+		<div class="clearfix"></div>
+		<br/><br/>
+		<div class="col-div-8">
+			<div class="box-8">
+			<div class="content-box"> 
+
+        <div class="table">
+          <div class="content-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Item No</th>
+                <th>Item Name</th>
+                <th>Item Barcode</th>
+                <th>Price/Item</th>
+                <th>Quantity</th>
+                <th>Total-Cost Price</th>
+              </tr>
+            </thead>
+            <tbody>
+             <% newProd.forEach(function(prod){ %>
+                <tr>
+                  <td> <%= prod.ino %> </td>
+                  <td> <%= prod.name %> </td>
+                  <td> <%= prod.barcode %> </td>
+                  <td> <%= prod.price %> </td>
+                  <td> <%= prod.qty %> </td>
+                  <td><%= prod.price*prod.qty%></td>
+                </tr> 
+            <%  }) %>
+            </tbody>
+          </table>
+          <form class="" action="/inventory" method="POST">
+            <input type="number" name="newNum" placeholder="Item Number" autocomplete="off">
+            <input type="text" name="newItem" placeholder="Item Name" autocomplete="off">
+            <input type="text" name="newBarcode" placeholder="Barcode" autocomplete="off">
+            <input type="number" name="newPrice" placeholder="Price" autocomplete="off">
+            <input type="number" name="newQuantity" placeholder="Quantity" autocomplete="off">  
+            <button type="submit" name="addItem">ADD</button>
+          </form>  
+          <br>
+          <form class="" action="/delete" method="POST">
+            <input type="number" name="delNum" placeholder="Item Number" autocomplete="off">
+            <button type="submit" name="delItem">REMOVE</button>
+          </form>
+          <br>
+          <form class="" action="/update" method="POST">
+            <input type="number" name="upNum" placeholder="Item Number" autocomplete="off">
+            <input type="number"name="upQty" placeholder="New Quantity" autocomplete="off">
+            <button type="submit" name="update">UPDATE</button>
+          </form>   
+        </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+    
+    </div>
+    <div class="clearfix"></div>
+    <div class="clearfix"></div>
+    <br/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+      $(".nav").click(function(){
+        $("#mySidenav").css('width','70px');
+        $("#main").css('margin-left','70px');
+        $(".logo").css('visibility', 'hidden');
+        $(".logo span").css('visibility', 'visible');
+        $(".logo span").css('margin-left', '-10px');
+        $(".icon-a").css('visibility', 'hidden');
+        $(".icons").css('visibility', 'visible');
+        $(".icons").css('margin-left', '-8px');
+          $(".nav").css('display','none');
+          $(".nav2").css('display','block');
+      });
+
+    $(".nav2").click(function(){
+        $("#mySidenav").css('width','300px');
+        $("#main").css('margin-left','300px');
+        $(".logo").css('visibility', 'visible');
+        $(".icon-a").css('visibility', 'visible');
+        $(".icons").css('visibility', 'visible');
+        $(".nav").css('display','block');
+          $(".nav2").css('display','none');
+    });
+
+    </script>
+    </body>
+    </html>
+
+
+
+
+

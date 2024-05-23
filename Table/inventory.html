@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="css/inventorystyle.css">  
+</head>
+<body>
+    <h1>Inventory:</h1>
+    <div class="table">
+      <table class="content-table">
+          <thead>
+            <tr>
+              <th>Item No</th>
+              <th>Item Name</th>
+              <th>Item Barcode</th>
+              <th>Quantity</th>
+              <th>Price/Item</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Pens</td>
+              <td>252624</td>
+              <td>25</td>
+              <td>15</td>
+            </tr>
+            <tr class="active-row">
+              <td>2</td>
+              <td>Pencil</td>
+              <td>724001</td>
+              <td>20</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Notebooks</td>
+              <td>521300</td>
+              <td>30</td>
+              <td>50</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <form class="" action="/inventory" method="post">
+      <input type="number" name="newNum">
+      <input type="text" name="newItem">
+      <input type="text" name="newBarcode">
+      <input type="number" name="newQuantity">
+      <input type="number" name="newPrice">
+      <button type="submit" name="addItem">ADD</button>
+    </form>
+
+    
+</body>
+</html>
